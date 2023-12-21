@@ -17,7 +17,10 @@ int eliminate(Matrix *mat, Matrix *b){
 				maks=mat->data[j][i];
 			}
 		}
-		if(mrzad!=i){//jesli maks nie w schodkowo pierwszej linii
+		if(mrzad!=i){	//jesli maks nie w schodkowo pierwszej linii
+			kopia=b->data[i][0];
+			b->data[i][0]=b->data[mrzad][0];
+			b->data[mrzad][0]=kopia;	//podmiana wynikow
 			for(int j=0;j<c;j++){//to zamien je miejscami
 				kopia=mat->data[i][j];
 				mat->data[i][j]=mat->data[mrzad][j];
